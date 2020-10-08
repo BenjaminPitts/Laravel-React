@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('people', function () {
+    $users = DB::select('SELECT * FROM people');
+    return $users;
+});
