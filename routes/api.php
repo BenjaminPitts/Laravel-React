@@ -19,18 +19,18 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('people', function () {
-    $users = DB::select('SELECT * FROM people');
-    return $users;
+    $people = DB::select('SELECT * FROM people');
+    return $people;
 });
 
 Route::post('people', function (Request $request) {
     DB::insert('INSERT INTO people (name, age) VALUES (?, ?)', [$request->name, $request->age]);
-    $users = DB::select('SELECT * FROM people');
-    return $users;
+    $people = DB::select('SELECT * FROM people');
+    return $people;
 });
 
 Route::delete('people/{id}', function ($id) {
     DB::delete('DELETE FROM people WHERE id = ?', [$id]);
-    $users = DB::select('SELECT * FROM people');
-    return $users;
+    $people = DB::select('SELECT * FROM people');
+    return $people;
 });
