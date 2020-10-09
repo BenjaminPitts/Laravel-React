@@ -1,6 +1,8 @@
 # Steps to Create and Deploy
 
-## Initialize Composer
+## Set up local app
+
+### Install Composer
 
 - Make sure you have MAMP and Postgres installed and running
 - Download comopser: https://getcomposer.org/composer-stable.phar
@@ -14,7 +16,7 @@
 
 - close terminal window and open a new one
 
-## Forking/Cloning This Repo
+### Forking/Cloning This Repo
 
 After forking and cloning this repo to your local machine:
 
@@ -22,7 +24,7 @@ After forking and cloning this repo to your local machine:
 - run `composer install`
 - run `cp .env.example .env`
 
-## Connect to db
+### Connect to db
 
 Connect to psql and
 
@@ -59,9 +61,24 @@ DB_PASSWORD=
 
 Instead of `matthuntington` insert your computer's username (what you found when running `whoami`)
 
-## Start App
+### Start App
 
 - run `php artisan serve`
 - go to http://localhost:8000/
 - if browser asks you to generate key, click the button
 - go to http://localhost:8000/index.html
+
+## set up heroku
+
+### in your terminal
+
+1. run `heroku create` (take note of the app name for later)
+
+### in your browser
+
+1. go to heroku.com in your browser and sign in
+1. find this newly created heroku app in your list of available apps and click on it
+1. go to resources
+1. search for postgres and choose Heroku Postgres
+1. choose "Hobby Dev - Free"
+1. click provision
