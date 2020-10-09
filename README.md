@@ -18,6 +18,13 @@
 - `cd` into your app's dir
 - run `php artisan serve`
 - go to http://localhost:8000/
+- if browser asks you to generate key, click the button
+
+## After Forking/Cloning
+
+- `cd` to repo dir
+- run `composer install`
+- run `cp .env.example .env`
 
 ## Connect to db
 
