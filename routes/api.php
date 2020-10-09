@@ -15,24 +15,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('people', function () {
-    $people = DB::select('SELECT * FROM people');
+    $people = DB::select('SELECT * FROM people ORDER BY id ASC');
     return $people;
 });
 
 Route::post('people', function (Request $request) {
     DB::insert('INSERT INTO people (name, age) VALUES (?, ?)', [$request->name, $request->age]);
-    $people = DB::select('SELECT * FROM people');
+    $people = DB::select('SELECT * FROM people ORDER BY id ASC');
     return $people;
 });
 
 Route::delete('people/{id}', function ($id) {
     DB::delete('DELETE FROM people WHERE id = ?', [$id]);
-    $people = DB::select('SELECT * FROM people');
+    $people = DB::select('SELECT * FROM people ORDER BY id ASC');
     return $people;
 });
 
 Route::put('people/{id}', function (Request $request, $id) {
     DB::update('UPDATE people SET name=?, age=? WHERE id = ?', [$request->name, $request->age, $id]);
-    $people = DB::select('SELECT * FROM people');
+    $people = DB::select('SELECT * FROM people ORDER BY id ASC');
     return $people;
 });
