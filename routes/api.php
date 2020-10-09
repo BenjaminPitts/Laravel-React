@@ -22,3 +22,9 @@ Route::get('people', function () {
     $users = DB::select('SELECT * FROM people');
     return $users;
 });
+
+Route::delete('people/{id}', function ($id) {
+    DB::delete('DELETE FROM people WHERE id = ?', [$id]);
+    $users = DB::select('SELECT * FROM people');
+    return $users;
+});
