@@ -1,6 +1,6 @@
 # Steps to Create and Deploy
 
-## Initialize
+## Initialize Composer
 
 - Make sure you have MAMP and Postgres installed and running
 - Download comopser: https://getcomposer.org/composer-stable.phar
@@ -13,19 +13,14 @@
   - `echo 'export PATH="/Applications/MAMP/bin/php/php7.4.2/bin:$PATH"' >> ~/.bash_profile` substituting your latest version of php for `php7.4.2`
 
 - close terminal window and open a new one
-- run `composer global require laravel/installer`
 
-- go to where you want your app to be and run `laravel new blog` substituting the name of your app for `blog`
-- `cd` into your app's dir
-- run `php artisan serve`
+## Forking/Cloning This Repo
 
-## After Forking/Cloning
+After forking and cloning this repo to your local machine:
 
 - `cd` to repo dir
 - run `composer install`
 - run `cp .env.example .env`
-- go to http://localhost:8000/index.html
-- if browser asks you to generate key, click the button
 
 ## Connect to db
 
@@ -38,7 +33,9 @@ CREATE TABLE people (id SERIAL, name VARCHAR(16), age INT);
 INSERT INTO people (name, age) VALUES ('matt', 40);
 ```
 
-In `.env` file, adjust the following:
+Run `whoami` and take note over your computer's username (mine is `matthuntington`)
+
+In `.env` file, adjust the following code block:
 
 ```
 DB_CONNECTION=mysql
@@ -60,13 +57,11 @@ DB_USERNAME=matthuntington
 DB_PASSWORD=
 ```
 
-## Create routes
+Instead of `matthuntington` insert your computer's username (what you found when running `whoami`)
 
-In `routes/api.php` add:
+## Start App
 
-```php
-Route::get('people', function () {
-    $users = DB::select('SELECT * FROM people');
-    return $users;
-});
-```
+- run `php artisan serve`
+- go to http://localhost:8000/
+- if browser asks you to generate key, click the button
+- go to http://localhost:8000/index.html
