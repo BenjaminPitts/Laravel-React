@@ -1,6 +1,8 @@
 # Steps to Create and Deploy
 
-## Initialize
+## Set up local app
+
+### Install Composer
 
 - Make sure you have MAMP and Postgres installed and running
 - Download comopser: https://getcomposer.org/composer-stable.phar
@@ -8,25 +10,21 @@
 
   - `mv ~/Downloads/composer-stable.phar /usr/local/bin/composer`
   - `chmod 755 /usr/local/bin/composer`
-  - `composer global require laravel/installer`
   - `echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bash_profile`
   - `ls /Applications/MAMP/bin/php` and take note of the most recent version
-  - run `echo 'export PATH="/Applications/MAMP/bin/php/php7.4.2/bin:$PATH"' >> ~/.bash_profile` substituting your latest version of php for `php7.4.2`
+  - `echo 'export PATH="/Applications/MAMP/bin/php/php7.4.2/bin:$PATH"' >> ~/.bash_profile` substituting your latest version of php for `php7.4.2`
 
 - close terminal window and open a new one
-- go to where you want your app to be and run `laravel new blog` substituting the name of your app for `blog`
-- `cd` into your app's dir
-- run `php artisan serve`
-- go to http://localhost:8000/
-- if browser asks you to generate key, click the button
 
-## After Forking/Cloning
+### Forking/Cloning This Repo
+
+After forking and cloning this repo to your local machine:
 
 - `cd` to repo dir
 - run `composer install`
 - run `cp .env.example .env`
 
-## Connect to db
+### Connect to db
 
 Connect to psql and
 
@@ -37,7 +35,9 @@ CREATE TABLE people (id SERIAL, name VARCHAR(16), age INT);
 INSERT INTO people (name, age) VALUES ('matt', 40);
 ```
 
-In `.env` file, adjust the following:
+Run `whoami` and take note over your computer's username (mine is `matthuntington`)
+
+In `.env` file, adjust the following code block:
 
 ```
 DB_CONNECTION=mysql
@@ -59,13 +59,26 @@ DB_USERNAME=matthuntington
 DB_PASSWORD=
 ```
 
-## Create routes
+Instead of `matthuntington` insert your computer's username (what you found when running `whoami`)
 
-In `routes/api.php` add:
+### Start App
 
-```php
-Route::get('people', function () {
-    $users = DB::select('SELECT * FROM people');
-    return $users;
-});
-```
+- run `php artisan serve`
+- go to http://localhost:8000/
+- if browser asks you to generate key, click the button
+- go to http://localhost:8000/index.html
+
+## set up heroku
+
+### in your terminal
+
+1. run `heroku create` (take note of the app name for later)
+
+### in your browser
+
+1. go to heroku.com in your browser and sign in
+1. find this newly created heroku app in your list of available apps and click on it
+1. go to resources
+1. search for postgres and choose Heroku Postgres
+1. choose "Hobby Dev - Free"
+1. click provision
