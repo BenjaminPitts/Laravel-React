@@ -30,3 +30,9 @@ Route::delete('people/{id}', function ($id) {
     $people = DB::select('SELECT * FROM people');
     return $people;
 });
+
+Route::put('people/{id}', function (Request $request, $id) {
+    DB::update('UPDATE people SET name=?, age=? WHERE id = ?', [$request->name, $request->age, $id]);
+    $people = DB::select('SELECT * FROM people');
+    return $people;
+});
