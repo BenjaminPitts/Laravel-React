@@ -23,6 +23,12 @@ Route::get('people', function () {
     return $users;
 });
 
+Route::post('people', function (Request $request) {
+    DB::insert('INSERT INTO people (name, age) VALUES (?, ?)', [$request->name, $request->age]);
+    $users = DB::select('SELECT * FROM people');
+    return $users;
+});
+
 Route::delete('people/{id}', function ($id) {
     DB::delete('DELETE FROM people WHERE id = ?', [$id]);
     $users = DB::select('SELECT * FROM people');
