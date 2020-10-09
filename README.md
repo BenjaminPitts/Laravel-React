@@ -82,3 +82,14 @@ Instead of `matthuntington` insert your computer's username (what you found when
 1. search for postgres and choose Heroku Postgres
 1. choose "Hobby Dev - Free"
 1. click provision
+
+### in your terminal
+
+1. in your terminal, if running `psql` gives you "command not found", run `ln -s /Applications/Postgres.app/Contents/Versions/latest/bin/psql /usr/local/bin/psql`
+1. run `heroku pg:psql`
+1. once inside heroku's psql, run
+    1. `CREATE TABLE people (id SERIAL, name VARCHAR(16), age INT);`
+    1. `INSERT INTO people ( name, age ) VALUES ( 'Matt', 38 );`
+    1. `INSERT INTO people ( name, age ) VALUES ( 'Sally', 54 );`
+    1. `INSERT INTO people ( name, age ) VALUES ( 'Zanthar', 4892 );`
+1. exit heroku psql with `\q`
