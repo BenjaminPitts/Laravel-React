@@ -74,6 +74,7 @@ Instead of `matthuntington` insert your computer's username (what you found when
 
 1. run `heroku create` (take note of the app name for later)
 1. run `heroku config:set LOG_CHANNEL=errorlog`
+1. run `heroku config:set APP_KEY=$(php artisan --no-ansi key:generate --show)`
 
 ### in your browser
 
