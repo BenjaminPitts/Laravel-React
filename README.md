@@ -99,14 +99,12 @@ Instead of `matthuntington` insert your computer's username (what you found when
     1. `INSERT INTO people ( name, age ) VALUES ( 'Sally', 54 );`
     1. `INSERT INTO people ( name, age ) VALUES ( 'Zanthar', 4892 );`
 1. exit heroku psql with `\q`
-1. run `git push heroku master`
-1. run `heroku open` to see app (note this uses your heroku postgres database, which will have different data than your local db)
 
 ### Check your app on heroku
 
 - `git push heroku master`
 - `heroku open`
-- go to `/index.html` to see the react app, the root will be default Laravel info. 
+- go to `/index.html` to see the react app, the root will be default Laravel info (note this uses your heroku postgres database, which will have different data than your local db)
 
 ## Rerunning local after initial set up
 
