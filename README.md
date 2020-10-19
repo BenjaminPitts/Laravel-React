@@ -26,6 +26,8 @@ After forking and cloning this repo to your local machine:
 
 ### Connect to db
 
+**Note:** in your terminal, if running psql gives you "command not found", run ln -s /Applications/Postgres.app/Contents/Versions/latest/bin/psql /usr/local/bin/psql
+
 Connect to psql and
 
 ```
@@ -63,10 +65,12 @@ Instead of `matthuntington` insert your computer's username (what you found when
 
 ### Start App
 
+- run before the first time only: `php artisan key:generate`
+
 - run `php artisan serve`
-- go to http://localhost:8000/
+- go to http://localhost:8000/ to see that the app works
 - if browser asks you to generate key, click the button
-- go to http://localhost:8000/index.html
+- go to http://localhost:8000/index.html to see the react app for `contacts`
 
 ## set up heroku
 
@@ -97,6 +101,12 @@ Instead of `matthuntington` insert your computer's username (what you found when
 1. exit heroku psql with `\q`
 1. run `git push heroku master`
 1. run `heroku open` to see app (note this uses your heroku postgres database, which will have different data than your local db)
+
+### Check your app on heroku
+
+- `git push heroku master`
+- `heroku open`
+- go to `/index.html` to see the react app, the root will be default Laravel info. 
 
 ## Rerunning local after initial set up
 
