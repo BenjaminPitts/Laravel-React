@@ -68,9 +68,9 @@ Instead of `matthuntington` insert your computer's username (what you found when
 - run before the first time only: `php artisan key:generate`
 
 - run `php artisan serve`
-- go to http://localhost:8000/ to see that the app works
+- go to http://localhost:8888/ to see that the app works
 - if browser asks you to generate key, click the button
-- go to http://localhost:8000/index.html to see the react app for `contacts`
+- go to http://localhost:8888/index.html to see the react app for `contacts`
 
 ## set up heroku
 
@@ -115,4 +115,4 @@ In terminal:
 1. Go to repo root dir
 1. Run `php artisan serve`
 
-In Browser go to http://localhost:8000/index.html
+In Browser go to http://localhost:8888/index.html
