@@ -1,0 +1,10 @@
+body {
+  background: #090909;
+  color: gold;
+}
+input {
+  background: ivory;
+}
+input:hover {
+  background: gold;
+}
