@@ -8,3 +8,21 @@ input {
 input:hover {
   background: gold;
 }
+img {
+  width: 30%;
+}
+a {
+  text-decoration: none;
+  color: ivory;
+  font-size: 25px;
+}
+h2 {
+  margin:0;
+}
+a:hover {
+  color: gold;
+}
+button:hover {
+  background: gold;
+  cursor: pointer;
+}

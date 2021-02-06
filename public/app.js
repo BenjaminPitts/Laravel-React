@@ -1,5 +1,9 @@
+//import React, {Component} from 'react'
+// import ShowPage from '/ShowPage'
+
 class App extends React.Component {
     state = {
+        number: 0,
         people:[]
     }
 
@@ -89,15 +93,28 @@ class App extends React.Component {
         )
     }
 
+    increase = (event)=>{
+      this.setState({
+        number: this.state.number +=1
+      })
+    }
+
     render = () => {
         return <div>
+        <a href='/pics'>PICS PAGE</a><br />
+        <a href='/test'>TEST PAGE</a><br /><br />
+        <button onClick={this.increase}>Likes:
+        </button><h2>{this.state.number}</h2><br />
+
             <h2>Create Person</h2>
             <form onSubmit={this.createPerson}>
                 <input onKeyUp={this.changeNewPersonName} type="text" placeholder="name" /><br/>
                 <input onKeyUp={this.changeNewPersonAge} type="number" placeholder="age" /><br/>
                 <input type="submit" value="Create Person" />
-            </form>
-            <h2>List of People</h2>
+            </form><br />
+
+            <h2>List of People</h2><br />
+
             <ul>
                 {
                     this.state.people.map(
@@ -124,5 +141,6 @@ class App extends React.Component {
 
 ReactDOM.render(
     <App></App>,
+    //<ShowPage></ShowPage>,
     document.querySelector('main')
 )
