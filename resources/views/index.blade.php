@@ -10,6 +10,7 @@
     <style>
     <?php include 'main.css'; ?>
     </style>
+    
 
     <a href='/index.html'>Click here to go to main Contacts page</a>
 

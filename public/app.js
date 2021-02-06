@@ -100,7 +100,8 @@ class App extends React.Component {
     }
 
     render = () => {
-        return <div>
+        return <div className='main'>
+        <h1>People CRUD App</h1>
         <a href='/pics'>PICS PAGE</a><br />
         <a href='/test'>TEST PAGE</a><br /><br />
         <button onClick={this.increase}>Likes:
@@ -115,26 +116,25 @@ class App extends React.Component {
 
             <h2>List of People</h2><br />
 
-            <ul>
+            <div className='container'>
                 {
                     this.state.people.map(
                         (person, index) => {
-                            return <li key={index}>
+                            return <div className='box' key={index}>
 
-                                {person.name}: {person.age}
-
-                                <button value={person.id} onClick={this.deletePerson}>DELETE</button>
+                                {person.name} Age: {person.age}
 
                                 <form id={person.id} onSubmit={this.updatePerson}>
                                     <input onKeyUp={this.changeUpdatePersonName} type="text" placeholder="name"/><br/>
                                     <input onKeyUp={this.changeUpdatePersonAge} type="number" placeholder="age"/><br/>
-                                    <input type="submit" value="Update Person"/>
+                                    <input type="submit" value="Update Person"/><br />
+                                    <button className='delete' value={person.id} onClick={this.deletePerson}>DELETE</button>
                                 </form>
-                            </li>
+                            </div>
                         }
                     )
                 }
-            </ul>
+            </div>
         </div>
     }
 }
