@@ -9,19 +9,21 @@ input:hover {
   background: gold;
 }
 img {
-  width: 30%;
+  width: 35%;
+  margin: 0 1rem;;
 }
 a {
   text-decoration: none;
   color: ivory;
   font-size: 25px;
 }
-h2 {
+h2, h3, h4 {
   margin:0;
+  padding: 0;
 }
-div {
+/* div {
   border: 1px solid gold;
-}
+} */
 .main {
   text-align: center;
 }
@@ -34,10 +36,20 @@ div {
 }
 .box {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 25%;
+  width: 90%;
+  border: 1px solid gold;
   margin: 1rem;
+}
+.innerBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
 }
 .delete:hover {
   background: red;
@@ -50,8 +62,8 @@ button:hover {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 1020px) {
   .box {
-    width: 70%;
+    width: 30%;
   }
 }

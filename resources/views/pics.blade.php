@@ -10,9 +10,15 @@
     <style>
     <?php include 'main.css'; ?>
     </style>
-
-These are a bunch of sweet pics!<br>
+    <div class='innerBox'>
+These are a bunch of sweet pics!<br><br>
+<div class='container'>
 <img src='https://i.imgur.com/Ni4r2aP.jpeg'><br>
+<img src='https://i.imgur.com/Ni4r2aP.jpeg'><br>
+<img src='https://i.imgur.com/Ni4r2aP.jpeg'><br>
+<img src='https://i.imgur.com/Ni4r2aP.jpeg'><br>
+</div><br>
 <a href='/index.html'>Back to main contacts page</a>
+</div>
   </body>
 </html>

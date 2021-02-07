@@ -14,25 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('people', function () {
-    $people = DB::select('SELECT * FROM people ORDER BY id ASC');
-    return $people;
+Route::get('reviews', function () {
+    $reviews = DB::select('SELECT * FROM reviews ORDER BY id ASC');
+    return $reviews;
 });
 
-Route::post('people', function (Request $request) {
-    DB::insert('INSERT INTO people (name, age) VALUES (?, ?)', [$request->name, $request->age]);
-    $people = DB::select('SELECT * FROM people ORDER BY id ASC');
-    return $people;
+Route::post('reviews', function (Request $request) {
+    DB::insert('INSERT INTO reviews (name, comments, pics) VALUES (?, ?, ?)', [$request->name, $request->comments, $request->pics]);
+    $reviews = DB::select('SELECT * FROM reviews ORDER BY id ASC');
+    return $reviews;
 });
 
-Route::delete('people/{id}', function ($id) {
-    DB::delete('DELETE FROM people WHERE id = ?', [$id]);
-    $people = DB::select('SELECT * FROM people ORDER BY id ASC');
-    return $people;
+Route::delete('reviews/{id}', function ($id) {
+    DB::delete('DELETE FROM reviews WHERE id = ?', [$id]);
+    $reviews = DB::select('SELECT * FROM reviews ORDER BY id ASC');
+    return $reviews;
 });
 
-Route::put('people/{id}', function (Request $request, $id) {
-    DB::update('UPDATE people SET name=?, age=? WHERE id = ?', [$request->name, $request->age, $id]);
-    $people = DB::select('SELECT * FROM people ORDER BY id ASC');
-    return $people;
+Route::put('reviews/{id}', function (Request $request, $id) {
+    DB::update('UPDATE reviews SET name=?, comments=?, pics=? WHERE id = ?', [$request->name, $request->comments, $request->pics, $id]);
+    $reviews = DB::select('SELECT * FROM reviews ORDER BY id ASC');
+    return $reviews;
 });

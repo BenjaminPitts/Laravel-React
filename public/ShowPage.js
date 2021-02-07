@@ -1,4 +1,5 @@
-//import React, {Component} from 'react'
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 
 class ShowPage extends Componenet {
   render=()=>{
@@ -11,4 +12,4 @@ class ShowPage extends Componenet {
   }
 }
 
-export default ShowPage
+export default ShowPage;

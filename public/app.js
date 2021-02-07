@@ -1,96 +1,116 @@
 //import React, {Component} from 'react'
 // import ShowPage from '/ShowPage'
+//require('./bootstrap');
+//import ShowPage from '/ShowPage';
 
 class App extends React.Component {
     state = {
         number: 0,
-        people:[]
+        reviews:[]
     }
 
     componentDidMount = () => {
-        axios.get('/api/people').then(
+        axios.get('/api/reviews').then(
             (response) => {
                 this.setState({
-                    people:response.data
+                    reviews:response.data
                 })
             }
         )
     }
 
-    createPerson = (event) => {
+    createReview = (event) => {
+      event.target.reset()
         event.preventDefault();
         axios.post(
-            '/api/people',
+            '/api/reviews',
             {
-                name:this.state.newPersonName,
-                age:this.state.newPersonAge,
+                name:this.state.newReviewName,
+                comments:this.state.newReviewComment,
+                pics:this.state.newReviewPics
             }
         ).then(
             (response) => {
                 this.setState({
-                    people:response.data
+                    reviews:response.data
                 })
             }
         )
     }
 
-    changeNewPersonAge = (event) => {
+    changeNewReviewComment = (event) => {
         this.setState({
-            newPersonAge:event.target.value
+            newReviewComment:event.target.value
         });
     }
 
-    changeNewPersonName = (event) => {
+    changeNewReviewName = (event) => {
         this.setState({
-            newPersonName:event.target.value
+            newReviewName:event.target.value
         });
     }
+    changeNewReviewPics = (event) => {
+      this.setState({
+        newReviewPics:event.target.value
+      })
+    }
 
-    deletePerson = (event) => {
-        axios.delete('/api/people/' + event.target.value).then(
+    deleteReview = (event) => {
+        axios.delete('/api/reviews/' + event.target.value).then(
             (response) => {
                 this.setState({
-                    people:response.data
+                    reviews:response.data
                 })
             }
         )
 
     }
 
-    updatePerson = (event) => {
+    updateReview = (event) => {
+       event.target.reset()
         event.preventDefault();
         const id = event.target.getAttribute('id');
         axios.put(
-            '/api/people/' + id,
+            '/api/reviews/' + id,
             {
-                name:this.state.updatePersonName,
-                age:this.state.updatePersonAge,
+                name:this.state.updateReviewName,
+                comments:this.state.updateReviewComment,
+                pics:this.state.updateReviewPics
             }
         ).then(
             (response) => {
                 this.setState({
-                    people:response.data,
+                    reviews:response.data,
                     name:'',
-                    age:null,
+                    comments:'',
+                    pics:''
                 })
             }
         )
     }
 
-    changeUpdatePersonName = (event) => {
+    changeUpdateReviewName = (event) => {
         this.setState(
             {
-                updatePersonName:event.target.value
+                updateReviewName:event.target.value
             }
         )
     }
 
-    changeUpdatePersonAge = (event) => {
+    changeUpdateReviewComment = (event) => {
         this.setState(
             {
-                updatePersonAge:event.target.value
+                updateReviewComment:event.target.value
             }
         )
+    }
+
+    changeUpdateReviewPics = (event) => {
+      this.setState(
+        {
+          updateReviewPics:event.target.value
+        }
+      )
     }
 
     increase = (event)=>{
@@ -101,35 +121,41 @@ class App extends React.Component {
 
     render = () => {
         return <div className='main'>
-        <h1>People CRUD App</h1>
+        <h1>TripleJ Test Page</h1>
         <a href='/pics'>PICS PAGE</a><br />
         <a href='/test'>TEST PAGE</a><br /><br />
         <button onClick={this.increase}>Likes:
         </button><h2>{this.state.number}</h2><br />
 
-            <h2>Create Person</h2>
-            <form onSubmit={this.createPerson}>
-                <input onKeyUp={this.changeNewPersonName} type="text" placeholder="name" /><br/>
-                <input onKeyUp={this.changeNewPersonAge} type="number" placeholder="age" /><br/>
-                <input type="submit" value="Create Person" />
+            <h2>Create New Review</h2>
+            <form onSubmit={this.createReview}>
+                <input onKeyUp={this.changeNewReviewName} type="text" placeholder="name" /><br/>
+                <input onKeyUp={this.changeNewReviewComment} type="text" placeholder="comments" /><br/>
+                <input onKeyUp={this.changeNewReviewPics} type='text' placeholder='image URL' /><br />
+                <input type="submit" value="Create New Review" />
             </form><br />
-
-            <h2>List of People</h2><br />
 
             <div className='container'>
                 {
-                    this.state.people.map(
-                        (person, index) => {
+                    this.state.reviews.map(
+                        (review, index) => {
                             return <div className='box' key={index}>
+                            <img src={review.pics} /><br />
+                            <div className='innerBox'>
+                                <h4>--{review.name}<br />
+                                <i>'{review.comments}'</i><br /><br />
+                                Posted: {new Date(review.created_at).toLocaleDateString("en-US")}</h4><br />
+                                <details><summary>Edit Post</summary>
+                                <form id={review.id} onSubmit={this.updateReview}>
+                                    <input onKeyUp={this.changeUpdateReviewName} type="text" placeholder="name"/><br/>
+                                    <input onKeyUp={this.changeUpdateReviewComment} type="text" placeholder="comments"/><br/>
+                                    <input onKeyUp={this.changeUpdateReviewPics} type='text' placeholder='image URL'/><br />
 
-                                {person.name} Age: {person.age}
-
-                                <form id={person.id} onSubmit={this.updatePerson}>
-                                    <input onKeyUp={this.changeUpdatePersonName} type="text" placeholder="name"/><br/>
-                                    <input onKeyUp={this.changeUpdatePersonAge} type="number" placeholder="age"/><br/>
-                                    <input type="submit" value="Update Person"/><br />
-                                    <button className='delete' value={person.id} onClick={this.deletePerson}>DELETE</button>
+                                    <input type="submit" value="Update Review"/><br />
+                                    <button className='delete' value={review.id} onClick={this.deleteReview}>DELETE REVIEW</button>
                                 </form>
+                                </details>
+                                </div>
                             </div>
                         }
                     )
@@ -141,6 +167,6 @@ class App extends React.Component {
 
 ReactDOM.render(
     <App></App>,
-    //<ShowPage></ShowPage>,
+    // <ShowPage />,
     document.querySelector('main')
 )
