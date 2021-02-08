@@ -154,7 +154,7 @@ class App extends React.Component {
                                 <h5>Must Fill Out All Fields</h5>
                                 <form id={review.id} onSubmit={this.updateReview}>
                                     <input onKeyUp={this.changeUpdateReviewName} type="text" placeholder='name' /><br/>
-                                    <input onKeyUp={this.changeUpdateReviewComment} type="text" placeholder='comments'/><br/>
+                                    <input id='comments' onKeyUp={this.changeUpdateReviewComment} type="text" placeholder='comments'/><br/>
                                     <input onKeyUp={this.changeUpdateReviewPics} type='text' placeholder='img URL'/><br />
 
                                     <input type="submit" value="Update Review"/><br />
@@ -170,7 +170,7 @@ class App extends React.Component {
             <h2>Post A Review</h2>
             <form onSubmit={this.createReview}>
                 <input onKeyUp={this.changeNewReviewName} type="text" placeholder="name" /><br/>
-                <input onKeyUp={this.changeNewReviewComment} type="text" placeholder="comments" /><br/>
+                <input id ='comments' onKeyUp={this.changeNewReviewComment} type="text" placeholder="comments" /><br/>
                 <input onKeyUp={this.changeNewReviewPics} type='text' placeholder='image URL' /><br />
                 <input type="submit" value="Create New Review" />
             </form><br />
@@ -192,7 +192,7 @@ class App extends React.Component {
           <img src='https://i.imgur.com/dTYQkcJ.jpg' />
           </div>
           <div className='description'>
-          This is a description of the piture
+          This is a description of the job
           </div>
           </div>
           <br />
@@ -207,7 +207,7 @@ class App extends React.Component {
           <img src='https://i.imgur.com/ijWIK1w.jpg' />
           </div>
           <div className='description'>
-          This is a description of the piture
+          This is a description of the job
           </div>
           </div>
           <br />
