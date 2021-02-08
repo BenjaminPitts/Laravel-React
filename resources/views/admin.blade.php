@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <link href='../public/main.css' rel='stylesheet'>
-    <title>test</title>
+    <title>Admin</title>
   </head>
   <body>
 
@@ -11,7 +11,7 @@
     <?php include 'main.css'; ?>
     </style>
 
-This is a PHP test page<br>
-<a href='/index.html'>Back to main contacts page</a>
+    <h1>Admin Page</h1><br>
+    <a href='/index.html'>Back to main contacts page</a>
   </body>
 </html>

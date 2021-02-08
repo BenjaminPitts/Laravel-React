@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
     <link href='../../public/main.css' rel='stlyesheet'>
     <title>Hello</title>
   </head>
@@ -10,9 +10,9 @@
     <style>
     <?php include 'main.css'; ?>
     </style>
-    
 
-    <a href='/index.html'>Click here to go to main Contacts page</a>
+
+    <a href='/index.html'>Click here to go to TripleJ page</a>
 
   </body>
 </html>

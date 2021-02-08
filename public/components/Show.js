@@ -1,7 +1,6 @@
-// import React, {Component} from 'react';
-// import ReactDOM from 'react-dom';
+//import React, { Component } from 'react'
 
-class ShowPage extends React.Componenet {
+class Show extends React.Component {
   render=()=>{
     return (
       <div className='show'>
@@ -17,4 +16,4 @@ class ShowPage extends React.Componenet {
 //     document.querySelector('p')
 // )
 
-export default ShowPage;
+export default Show;
